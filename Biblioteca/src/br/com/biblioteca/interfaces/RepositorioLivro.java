@@ -8,7 +8,7 @@ public interface RepositorioLivro {
 	 void inserir(Livro livro);
 	 public Livro procurar(String titulo);
 	 void remover(Livro livro);
-	 void atualizar(Livro livro);
+	 Livro atualizar(Livro livro);
 
 
 }
