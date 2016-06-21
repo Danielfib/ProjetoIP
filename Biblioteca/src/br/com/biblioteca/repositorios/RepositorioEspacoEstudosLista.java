@@ -11,7 +11,6 @@ public class RepositorioEspacoEstudosLista implements RepositorioEspacoEstudo {
 		ElementoEspacoEstudo auxilio = new ElementoEspacoEstudo();
 		if (lista.getQtd() == 0) {
 			entrada.setEspaco(espaco);
-			entrada.setProx(null);
 			lista.setPrimeiro(entrada);
 			lista.setUltimo(entrada);
 			lista.setQtd(lista.getQtd() + 1);
@@ -21,7 +20,6 @@ public class RepositorioEspacoEstudosLista implements RepositorioEspacoEstudo {
 				auxilio = auxilio.getProx();
 			}
 			entrada.setEspaco(espaco);
-			entrada.setProx(null);
 			auxilio.setProx(entrada);
 			lista.setUltimo(entrada);
 			lista.setQtd(lista.getQtd() + 1);
@@ -32,52 +30,52 @@ public class RepositorioEspacoEstudosLista implements RepositorioEspacoEstudo {
 		ElementoEspacoEstudo teste = new ElementoEspacoEstudo();
 		if (lista.getQtd() == 0) {
 			return null;
-			// retorna exception LVException (Lista Vazia)
 		} else {
 			teste = lista.getPrimeiro();
 			for (int i = 0; i <= 1; i++) {
 				if (teste.getEspaco().getIdentificador() == identificador) {
 					i = 2;
 					return teste.getEspaco();
-					// retorna o espaço indicado;
 				} else if (teste.getProx() != null) {
 					i = 0;
 					teste = teste.getProx();
 				} else {
 					return null;
-					// retorna exception NEException (Não Encontrado);
 				}
 			}
 		}
 		return null;
 	}
 
-	public void remover(int identificador) {
+	public void remover(EspacoEstudo espaco) {
 		ElementoEspacoEstudo teste = new ElementoEspacoEstudo();
 		if (lista.getQtd() == 0) {
-			// retorna exception LVException (Lista Vazia)
 		} else {
 			teste = lista.getPrimeiro();
 			if (teste.getProx() != null) {
-				if (teste.getEspaco().getIdentificador() == identificador) {
+				if (teste.getEspaco() == espaco) {
 					lista.setPrimeiro(lista.getPrimeiro().getProx());
-
+					lista.setQtd(lista.getQtd()-1);
 					// Remove o primeiro valor da lista e substitui pelo
 					// próximo
-				} else if (teste.getProx().getEspaco().getIdentificador() == identificador) {
+				} else if (teste.getProx().getEspaco() == espaco) {
 					teste.setProx(teste.getProx().getProx());
+					lista.setQtd(lista.getQtd()-1);
 				} else {
 					teste = teste.getProx();
 				}
 			} else {
-				// Retorna NEException (Não Encontrado)
 			}
 		}
 	}
 
 	@Override
-	public void atualizar(EspacoEstudo espaco) {
-		// TODO Auto-generated method stub
+	public EspacoEstudo atualizar(EspacoEstudo espaco) {
+		EspacoEstudo auxiliar = procurar(espaco.getIdentificador());
+		if (auxiliar != null){
+			auxiliar = espaco;
+		}
+		return auxiliar;
 		
 	}
 

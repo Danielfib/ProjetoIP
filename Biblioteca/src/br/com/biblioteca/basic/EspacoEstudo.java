@@ -23,7 +23,7 @@ public class EspacoEstudo { // Classe espEstudo
 		this.aluno = null;
 	}
 
-	public void imprimir(Aluno aluno, int paginas) { // Método para imprimir.
+	/*public void imprimir(Aluno aluno, int paginas) { // Método para imprimir.
 		if ((aluno.getCotaImpressao() > 0)
 				&& (aluno.getCotaImpressao() - paginas > 0)) {
 			aluno.setCotaImpressao(aluno.getCotaImpressao() - paginas);
@@ -32,7 +32,7 @@ public class EspacoEstudo { // Classe espEstudo
 			// retorna exceção;
 		}
 
-	}
+	}*/
 
 	// Getters n' Setters
 	public Aluno getAluno() {
