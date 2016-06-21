@@ -1,14 +1,14 @@
 
 public class RepositorioFornecedorLista {
 
-	public Quadrado primeiro;
+	public Quadrado1 primeiro;
 
 	public void criarLista() {
 		primeiro = null;
 	}
 
 //	public void inserirInverso(Fornecedor) {
-//		Quadrado frist = new Quadrado(i);
+//		Quadrado1 frist = new Quadrado1(i);
 //		frist.setNumero(i);
 //		frist.setProx(primeiro);
 //		primeiro = frist;
@@ -16,21 +16,21 @@ public class RepositorioFornecedorLista {
 	@Override
 	
 	public void inserir(Fornecedor fornecedor) {
-		Quadrado frist = primeiro;
+		Quadrado1 frist = primeiro;
 		if (primeiro == null) {
-			primeiro = new Quadrado(fornecedor);
+			primeiro = new Quadrado1(fornecedor);
 		} else {
 			while (frist.getProx() != null) {
 				frist = frist.getProx();
 			}
-			frist.setProx(new Quadrado(fornecedor));
+			frist.setProx(new Quadrado1(fornecedor));
 		}
 	}
 	
 	@Override
 	
-	public Quadrado procurar(Fornecedor fornecedor){
-		for ( Quadrado n = primeiro; n !=null ; n = n.getProx()){
+	public Quadrado1 procurar(Fornecedor fornecedor){
+		for ( Quadrado1 n = primeiro; n !=null ; n = n.getProx()){
 			if(n.getFornecedor()==Fornecedor){
 				return n ;
 			}
@@ -41,8 +41,8 @@ public class RepositorioFornecedorLista {
 	@Override
 	
 	public void remover(Fornecedor fornecedor) {
-		Quadrado anterior = null;
-		Quadrado p = primeiro;
+		Quadrado1 anterior = null;
+		Quadrado1 p = primeiro;
  
         while (p != null && p.getFornecedor() != fornecedor) {
             anterior = p;
@@ -62,17 +62,17 @@ public class RepositorioFornecedorLista {
 		
 	}
 }
-class Quadrado{
+class Quadrado1{
 	private Fornecedor fornecedor;
-	private Quadrado prox;
+	private Quadrado1 prox;
 	
-	public Quadrado(){
+	public Quadrado1(){
 		
 	}
-	public Quadrado(Fornecedor fonecedor){
+	public Quadrado1(Fornecedor fonecedor){
 		this.fornecedor = fornecedor;
 	}
-	public Quadrado(Fornecedor fonecedor, Quadrado prox) {
+	public Quadrado1(Fornecedor fonecedor, Quadrado1 prox) {
 		this.fornecedor = fornecedor;
 		this.prox = prox;
 	}
@@ -83,13 +83,13 @@ class Quadrado{
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
-	public Quadrado getProx() {
+	public Quadrado1 getProx() {
 		return prox;
 	}
-	public void setProx(Quadrado prox) {
+	public void setProx(Quadrado1 prox) {
 		this.prox = prox;
 	}
 	
 	
 }
-}
+

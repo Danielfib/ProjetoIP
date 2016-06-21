@@ -57,6 +57,10 @@ public class RepositorioLivros implements InterfaceLivro {
             anterior.setProx(p.getProx());
         }
     }
+	
+	public void atualizar(Livro livro){
+		
+	}
 }
 class Quadrado{
 	private Livro livro;
