@@ -35,10 +35,10 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 	
 	@Override
 	
-	public Quadrado1 procurar(Fornecedor fornecedor){
+	public Fornecedor procurar(Fornecedor fornecedor){
 		for ( Quadrado1 n = primeiro; n !=null ; n = n.getProx()){
 			if(n.getFornecedor() == fornecedor){
-				return n ;
+				return fornecedor ;
 			}
 		}
 		return null;

@@ -34,10 +34,10 @@ public class RepositorioLivroLista implements RepositorioLivro {
 	
 	@Override
 	
-	public Quadrado procurar(Livro livro){
+	public Livro procurar(Livro livro){
 		for ( Quadrado n = primeiro; n !=null ; n = n.getProx()){
 			if(n.getLivro()==livro){
-				return n ;
+				return livro ;
 			}
 		}
 		return null;
