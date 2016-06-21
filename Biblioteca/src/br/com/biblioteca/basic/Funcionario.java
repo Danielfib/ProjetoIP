@@ -1,14 +1,60 @@
 package br.com.biblioteca.basic;
 
-public class Funcionario extends Pessoa {
+import br.com.biblioteca.repositorios.RepositorioFornecedorArray;
+import br.com.biblioteca.repositorios.RepositorioFornecedorLista;
+import br.com.biblioteca.repositorios.RepositorioLivroArray;
+import br.com.biblioteca.repositorios.RepositorioLivrosLista;
+import br.com.biblioteca.repositorios.RepositorioPessoasArray;
+import br.com.biblioteca.repositorios.RepositorioPessoasLista;
 
-	void cadastrarLivro(Livro livro) {
-		Livro livr = new Livro(livro.getTitulo(), livro.getIdLivro(),
-				livro.getFornecedor(), false, livro.getQuatidade());
-		// add livr na lista
+public class Funcionario extends Pessoa {
+	
+	RepositorioPessoasArray arrayAlunos = new RepositorioPessoasArray(100);
+	RepositorioPessoasLista listaAlunos = new RepositorioPessoasLista();
+	RepositorioFornecedorArray arrayFornecedor = new RepositorioFornecedorArray(100);
+	RepositorioFornecedorLista listaFornecedor = new RepositorioFornecedorLista();
+	RepositorioLivroArray arrayLivros = new RepositorioLivroArray(100);
+	RepositorioLivrosLista listaLivros = new RepositorioLivrosLista();
+	
+
+	void cadastrarLivroArray(Livro livro) {
+		arrayLivros.inserir(livro);
 	}
 
-	void cadstrarAluno(Aluno aluno) {
+	void cadastrarAlunoArray(Aluno aluno) {
+		arrayAlunos.inserir(aluno);
+	}
+	
+	void descadastrarAlunoArray(Aluno aluno) {
+		arrayAlunos.remover(aluno);
+	}
+	
+	void cadastrarFornecedorArray(Fornecedor forn) {
+		arrayFornecedor.inserir(forn);
+	}
+	
+	void descadastrarFornecedorArray(Fornecedor forn) {
+		arrayFornecedor.remover(forn);
+	}
+	
+	void cadastrarLivroLista(Livro livro) {
+		listaLivros.inserir(livro);
+	}
+
+	void cadastrarAlunoLista(Aluno aluno) {
+		listaAlunos.inserir(aluno);
+	}
+	
+	void descadastrarAlunoLista(Aluno aluno) {
+		listaAlunos.remover(aluno);
+	}
+	
+	void cadastrarFornecedorLista(Fornecedor forn) {
+		listaFornecedor.inserir(forn);
+	}
+	
+	void descadastrarFornecedor(Fornecedor forn) {
+		listaFornecedor.remover(forn);
 	}
 
 	void retiraMulta(Aluno a) {
