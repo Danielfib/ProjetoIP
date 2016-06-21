@@ -4,12 +4,12 @@ package br.com.biblioteca.negocio;
 import br.com.biblioteca.basic.Livro;
 import br.com.biblioteca.interfaces.RepositorioLivro;
 
-public class CadastroLivros {
+public class CadastroLivro {
 
 	private RepositorioLivros livros;
 	
 	public CadastroLivro (RepositorioLivro novo) {
-		this.Livros = novo;
+		this.Livro = novo;
 	}
 	
 	public void cadastrar(Livro e) {
