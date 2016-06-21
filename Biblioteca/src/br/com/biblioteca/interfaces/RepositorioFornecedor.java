@@ -6,7 +6,7 @@ import br.com.biblioteca.basic.Quadrado1;
 public interface RepositorioFornecedor {
 
 	void inserir(Fornecedor fornecedor);
-	public Quadrado1 procurar(Fornecedor fornecedor);
+	public Fornecedor procurar(int cnpj );
 	void remover(Fornecedor fornecedor);
-	void atualizar(Fornecedor fornecedor);
+	Fornecedor atualizar(Fornecedor fornecedor);
 }
