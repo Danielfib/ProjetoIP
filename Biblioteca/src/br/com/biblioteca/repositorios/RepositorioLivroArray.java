@@ -4,14 +4,14 @@ package br.com.biblioteca.repositorios;
 import br.com.biblioteca.basic.Livro;
 
 import br.com.biblioteca.interfaces.RepositorioEmprestimos;
-import br.com.biblioteca.interfaces.RepositorioLivro;;
+import br.com.biblioteca.interfaces.RepositorioLivro;
 
 
 public class RepositorioLivroArray implements RepositorioLivro {
 	private Livro[] livro; 
 	private int indice;
 	
-	public RespositorioLivroArray(int size){
+	public RepositorioLivroArray(int size){
 		livro = new Livro[size];
 	}
 
