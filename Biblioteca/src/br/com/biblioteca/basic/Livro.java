@@ -7,6 +7,7 @@ public class Livro {
 	private Fornecedor fornecedor;
 	private boolean consulta;
 	private int quantidade;	
+	private int disponiveis = quantidade;
 	
 	public Livro() {
 	}
@@ -27,6 +28,16 @@ public class Livro {
 
 	public int getquantidade() {
 		return quantidade;
+	}
+
+
+	public int getDisponiveis() {
+		return disponiveis;
+	}
+
+
+	public void setDisponiveis(int disponiveis) {
+		this.disponiveis = disponiveis;
 	}
 
 
