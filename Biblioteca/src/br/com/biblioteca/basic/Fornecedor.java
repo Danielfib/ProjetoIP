@@ -1,5 +1,7 @@
 package br.com.biblioteca.basic;
 
+import br.com.biblioteca.negocio.CadastroLivros;
+
 public class Fornecedor {	
 	
 	private String Nome;
@@ -19,10 +21,12 @@ public class Fornecedor {
 	}
 	
 	
-	public void fornecerLivros(String titulo, int quantidade, boolean consulta, String id) {
+	public Livro fornecerLivros(String titulo, int quantidade, boolean consulta, String id) {
 		
 		 Livro livrofornecedor = new Livro(titulo, id, this, consulta, quantidade);
-		 		 
-		//adicionar a o repositorio de livros
+		 
+		 return livrofornecedor ;
+		 
+		
 	}
 }
