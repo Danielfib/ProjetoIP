@@ -63,8 +63,13 @@ public class RepositorioLivroLista implements RepositorioLivro {
         }
     }
 	
-	public void atualizar(Livro livro){
-		primeiro.
-		
+	@Override
+	
+	public Livro atualizar(Livro novoLivro) {
+		Livro novo = procurar(novoLivro.getTitulo());
+		if(novo != null) {
+			novo = novoLivro;
+		}
+		return novo;
 	}
-}
+}		
