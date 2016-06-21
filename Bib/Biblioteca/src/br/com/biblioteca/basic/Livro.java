@@ -1,5 +1,3 @@
-package br.com.biblioteca.basic;
-
 public class Livro {
 	
 	//nao fiz ainda o atributo " quantidade" pq estou enrolado
@@ -7,14 +5,15 @@ public class Livro {
 	private String IdLivro;
 	private Fornecedor fornecedor;
 	private boolean consulta;
-	private int quatidade;
+	private int quatidade;	
 	
+	public Livro() {
+	}
 	
-
 
 	public Livro(String titulo, String idLivro, Fornecedor fornecedor,
 			boolean consulta, int quatidade) {
-		super();
+		
 		this.titulo = titulo;
 		IdLivro = idLivro;
 		this.fornecedor = fornecedor;
@@ -23,7 +22,7 @@ public class Livro {
 	}
 
 
-	//getters e setters do meu livr√£o
+	//getters e setters do meu livr„o
 
 	public int getQuatidade() {
 		return quatidade;
