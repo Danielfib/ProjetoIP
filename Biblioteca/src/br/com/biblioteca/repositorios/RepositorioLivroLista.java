@@ -36,7 +36,7 @@ public class RepositorioLivroLista implements RepositorioLivro {
 	
 	public Livro procurar(Livro livro){
 		for ( Quadrado n = primeiro; n !=null ; n = n.getProx()){
-			if(n.getLivro()==livro){
+			if(n.getLivro().getTitulo()==livro.getTitulo()){
 				return livro ;
 			}
 		}
@@ -49,7 +49,7 @@ public class RepositorioLivroLista implements RepositorioLivro {
 		Quadrado anterior = null;
 		Quadrado p = primeiro;
  
-        while (p != null && p.getLivro() != livro) {
+        while (p != null && p.getLivro().getTitulo() != livro.getTitulo()) {
             anterior = p;
             p = p.getProx();
         }

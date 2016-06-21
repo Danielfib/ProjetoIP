@@ -37,7 +37,7 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 	
 	public Fornecedor procurar(Fornecedor fornecedor){
 		for ( Quadrado1 n = primeiro; n !=null ; n = n.getProx()){
-			if(n.getFornecedor() == fornecedor){
+			if(n.getFornecedor().getCNPJ() == fornecedor.getCNPJ()){
 				return fornecedor ;
 			}
 		}
@@ -50,7 +50,7 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 		Quadrado1 anterior = null;
 		Quadrado1 p = primeiro;
  
-        while (p != null && p.getFornecedor() != fornecedor) {
+        while (p != null && p.getFornecedor().getCNPJ() != fornecedor.getCNPJ()) {
             anterior = p;
             p = p.getProx();
         }
