@@ -6,32 +6,32 @@ public class Livro {
 	private String IdLivro;
 	private Fornecedor fornecedor;
 	private boolean consulta;
-	private int quatidade;	
+	private int quantidade;	
 	
 	public Livro() {
 	}
 	
 
 	public Livro(String titulo, String idLivro, Fornecedor fornecedor,
-			boolean consulta, int quatidade) {
+			boolean consulta, int quantidade) {
 		
 		this.titulo = titulo;
 		IdLivro = idLivro;
 		this.fornecedor = fornecedor;
 		this.consulta = consulta;
-		this.quatidade = quatidade;
+		this.quantidade = quantidade;
 	}
 
 
-	//getters e setters do meu livrão
+	//getters e setters do meu livrï¿½o
 
-	public int getQuatidade() {
-		return quatidade;
+	public int getquantidade() {
+		return quantidade;
 	}
 
 
-	public void setQuatidade(int quatidade) {
-		this.quatidade = quatidade;
+	public void setquantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	
