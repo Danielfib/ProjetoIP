@@ -3,6 +3,7 @@ package br.com.biblioteca.repositorios;
 import br.com.biblioteca.basic.Aluno;
 import br.com.biblioteca.basic.Emprestimo;
 import br.com.biblioteca.basic.Livro;
+import br.com.biblioteca.basic.Quadrado1;
 import br.com.biblioteca.interfaces.RepositorioEmprestimos;
 
 public class RepositorioEmprestimosLista implements RepositorioEmprestimos {
@@ -48,6 +49,22 @@ public class RepositorioEmprestimosLista implements RepositorioEmprestimos {
 
 	@Override
 	public void remover(Emprestimo e) {
+		ListaEmprestimo previous = null;
+		ListaEmprestimo l = head;
+ 
+        while (l != null && !(l.getEmprestimo().getLivro().getIdLivro().equals(e.getLivro().getIdLivro())) 
+        		&& l.getEmprestimo().getAluno().getID() != e.getAluno().getID()) {
+        	previous = l;
+            l = l.getNext();
+        }
+        if (l == null) {
+            return;
+        }
+        if (previous == null) {
+            head = l.getNext();
+        } else {
+        	previous.setNext(l.getNext());
+        }
 	}
 
 }

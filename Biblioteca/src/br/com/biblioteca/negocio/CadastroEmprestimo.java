@@ -3,6 +3,8 @@ package br.com.biblioteca.negocio;
 import br.com.biblioteca.basic.Aluno;
 import br.com.biblioteca.basic.Emprestimo;
 import br.com.biblioteca.basic.Livro;
+import br.com.biblioteca.exceptions.EmprestimoExistenteException;
+import br.com.biblioteca.exceptions.EmprestimoNaoEncontradoException;
 import br.com.biblioteca.interfaces.RepositorioEmprestimos;
 import br.com.biblioteca.repositorios.RepositorioEmprestimosArray;
 
@@ -14,30 +16,34 @@ public class CadastroEmprestimo {
 		this.emprestimos = emp;
 	}
 	
-	public void cadastrar(Emprestimo e) {
+	public void cadastrar(Emprestimo e) throws EmprestimoExistenteException {
 		if(emprestimos.procurar(e.getLivro(), e.getAluno()) == null) {
 			emprestimos.inserir(e);
 		} else {
-			// Exception
+			throw new EmprestimoExistenteException();
 		}
 	}
 	
-	public void remover(Emprestimo e) {
+	public void remover(Emprestimo e) throws EmprestimoNaoEncontradoException {
 		if(emprestimos.procurar(e.getLivro(), e.getAluno()) != null) {
 			emprestimos.remover(e);
 		} else {
-			// Execption
+			throw new EmprestimoNaoEncontradoException();
 		}
 	}
 	
-	public void atualizar(Emprestimo e) {
+	public void atualizar(Emprestimo e) throws EmprestimoNaoEncontradoException {
 		if(emprestimos.atualizar(e) == null) {
-			// Exception
+			throw new EmprestimoNaoEncontradoException();
 		}
 	}
 	
-	public Emprestimo procurar(Livro l, Aluno a) {
-		return emprestimos.procurar(l, a);
+	public Emprestimo procurar(Livro l, Aluno a) throws EmprestimoNaoEncontradoException {
+		Emprestimo emp = emprestimos.procurar(l, a);
+		if(emp == null) {
+			throw new EmprestimoNaoEncontradoException();
+		}
+		return emp;
 	}
 	
 }
