@@ -33,5 +33,10 @@ public class CadastroLivros {
 		}
 	}
 	
+	public Livro procurar(String titulo){
+		return novoLivro.procurar(titulo);
+		
+	}
+	
 	
 }
