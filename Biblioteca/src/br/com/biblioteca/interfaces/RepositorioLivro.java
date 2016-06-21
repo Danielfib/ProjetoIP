@@ -6,8 +6,9 @@ import br.com.biblioteca.basic.Quadrado;
 public interface RepositorioLivro {
 
 	 void inserir(Livro livro);
-	 public Quadrado procurar(Livro livro);
+	 public Livro procurar(String titulo);
 	 void remover(Livro livro);
 	 void atualizar(Livro livro);
+
 
 }
