@@ -2,7 +2,6 @@ package br.com.biblioteca.basic;
 
 public class Livro {
 
-	// nao fiz ainda o atributo " quantidade" pq estou enrolado
 	private String titulo;
 	private String IdLivro;
 	private Fornecedor fornecedor;

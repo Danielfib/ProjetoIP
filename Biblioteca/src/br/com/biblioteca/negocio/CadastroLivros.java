@@ -13,11 +13,12 @@ public class CadastroLivros {
 
 	}
 
-	public void cadastrar(Livro livro) throws LivroException {
-		if (this.repositorioLivro.procurar(livro.getTitulo()) == null) {
+	public void cadastrar(Livro livro) {
+		Livro l = this.repositorioLivro.procurar(livro.getTitulo());
+		if (l == null) {
 			this.repositorioLivro.inserir(livro);
 		} else {
-			throw new LivroException("Livro com esse titulo já existe!");
+			l.setquantidade(l.getquantidade() + livro.getquantidade());
 		}
 	}
 

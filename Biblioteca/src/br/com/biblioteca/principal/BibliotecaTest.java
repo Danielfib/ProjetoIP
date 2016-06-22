@@ -45,6 +45,7 @@ public class BibliotecaTest {
 
 		Path path = Paths.get("config.txt");
 		try {
+			Files.write(path, "lista".getBytes());
 			byte[] b = Files.readAllBytes(path);
 			String s = new String(b);
 			if (s.equals("")) {
@@ -77,18 +78,23 @@ public class BibliotecaTest {
 					cadFor);
 
 			Pessoa p = new Aluno("Maria", 2, 0.5, 10);
-			Livro l = new Livro("Java", "1", new Fornecedor("Saraiva", 111),
-					false, 10);
 			Fornecedor f = new Fornecedor("Saraiva", 12345);
+			Livro l = new Livro("Java", "1", f, false, 10);
 			Emprestimo e = new Emprestimo(p, l);
 			EspacoEstudo esp = new EspacoEstudo(1);
 
-			// biblioteca.pegarLivroEmprestado(p, l);
-			// biblioteca.cadastrarEspEstudo(1);
-			// biblioteca.removerEspEstudo(new EspacoEstudo(2));
+			//biblioteca.cadastrarFornecedor(f);
+			biblioteca.cadastrarEspEstudo(esp.getIdentificador());
+			biblioteca.removerEspEstudo(esp);
 			biblioteca.cadastrarLivro(l);
+			biblioteca.cadastrarLivro(l);
+			//biblioteca.pegarLivroEmprestado(p, new Livro());
+			
+			biblioteca.cadastrarPessoa(p);
+			biblioteca.removerPessoa(p);
+			biblioteca.pegarLivroEmprestado(p, l);
 
-		} catch (IOException | LivroException | FornecedorException e) {
+		} catch (IOException | LivroException | EmprestimoException | EspacoEstudoException | PessoaException | FornecedorException e) {
 			System.out.println(e.getMessage());
 		}
 	}

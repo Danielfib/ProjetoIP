@@ -145,18 +145,7 @@ public class Biblioteca {
 			FornecedorException {
 		Fornecedor f = cadastroFornecedor.procurar(livro.getFornecedor()
 				.getCNPJ());
-		if (f != null) {
-			Livro l = cadastroLivro.procurar(livro.getTitulo());
-			if (l != null) {
-				l.setquantidade(l.getquantidade() + livro.getquantidade());
-			} else {
-				cadastroLivro.cadastrar(livro);
-			}
-		} else {
-			cadastroFornecedor.cadastrar(livro.getFornecedor());
-			cadastroLivro.cadastrar(livro);
-		}
-
+		cadastroLivro.cadastrar(livro);
 	}
 
 	public void removerLivro(Livro livro) throws LivroException {
@@ -172,9 +161,11 @@ public class Biblioteca {
 	}
 
 	// Fornecedor - NUNES
-	
-	public void cadastrarFornecedor(Fornecedor fornecedor) throws FornecedorException {
-		cadastroFornecedor.cadastrar(new Fornecedor(fornecedor));
+
+	public void cadastrarFornecedor(Fornecedor fornecedor)
+			throws FornecedorException {
+		cadastroFornecedor.cadastrar(new Fornecedor(fornecedor.getNome(),
+				fornecedor.getCNPJ()));
 	}
 
 	public void removerFornecedor(Fornecedor fornecedor)
