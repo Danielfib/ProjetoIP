@@ -3,7 +3,7 @@ package br.com.biblioteca.basic;
 import br.com.biblioteca.repositorios.RepositorioFornecedorArray;
 import br.com.biblioteca.repositorios.RepositorioFornecedorLista;
 import br.com.biblioteca.repositorios.RepositorioLivroArray;
-import br.com.biblioteca.repositorios.RepositorioLivrosLista;
+import br.com.biblioteca.repositorios.RepositorioLivroLista;
 import br.com.biblioteca.repositorios.RepositorioPessoasArray;
 import br.com.biblioteca.repositorios.RepositorioPessoasLista;
 
@@ -14,7 +14,7 @@ public class Funcionario extends Pessoa {
 	RepositorioFornecedorArray arrayFornecedor = new RepositorioFornecedorArray(100);
 	RepositorioFornecedorLista listaFornecedor = new RepositorioFornecedorLista();
 	RepositorioLivroArray arrayLivros = new RepositorioLivroArray(100);
-	RepositorioLivrosLista listaLivros = new RepositorioLivrosLista();
+	RepositorioLivroLista listaLivros = new RepositorioLivroLista();
 	
 
 	void cadastrarLivroArray(Livro livro) {
