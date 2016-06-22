@@ -34,10 +34,10 @@ public class RepositorioLivroLista implements RepositorioLivro {
 	
 	@Override
 	
-	public Livro procurar(Livro livro){
+	public Livro procurar(String titulo){
 		for ( Quadrado n = primeiro; n !=null ; n = n.getProx()){
-			if(n.getLivro().getTitulo()==livro.getTitulo()){
-				return livro ;
+			if(n.getLivro().getTitulo()==titulo){
+				return n.getLivro();
 			}
 		}
 		return null;
