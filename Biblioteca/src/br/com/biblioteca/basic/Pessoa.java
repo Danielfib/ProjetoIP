@@ -4,6 +4,10 @@ public abstract class Pessoa {
 	private String Nome;
 	private int ID;
 	
+	public Pessoa (String nome, int id){
+		this.Nome = nome;
+		this.ID = id;
+	}
 	
 	public String getNome() {
 		return Nome;
