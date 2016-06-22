@@ -1,6 +1,7 @@
 package br.com.biblioteca.basic;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Emprestimo {
 
@@ -9,10 +10,11 @@ public class Emprestimo {
 	private Calendar dataEmprestimo;
 	private Calendar dataDevolucao;
 	
-	public Emprestimo(Aluno aluno, Livro livro, Calendar dataEmprestimo) {
+	public Emprestimo(Aluno aluno, Livro livro) {
 		this.aluno = aluno;
 		this.livro = livro;
-		this.dataEmprestimo = dataEmprestimo;
+		this.dataEmprestimo = Calendar.getInstance();
+		this.dataEmprestimo.setTime(new Date());
 		this.dataDevolucao.add(this.dataEmprestimo.DAY_OF_MONTH, 7);
 	}
 	
