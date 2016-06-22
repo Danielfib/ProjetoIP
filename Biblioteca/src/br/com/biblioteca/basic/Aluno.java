@@ -10,16 +10,10 @@ public class Aluno extends Pessoa {
 	RepositorioEmprestimosLista listaEmprestimos = new RepositorioEmprestimosLista();
 
 	public Aluno(String Nome, int ID, double valorMulta, int cotaImpressao) {
+		super(Nome, ID);
 		this.valorMulta = valorMulta;
 		this.cotaImpressao = cotaImpressao;
-	}
-
-	public Aluno(Aluno aluno) {
-		this.Nome = aluno.getNome();
-		this.ID = aluno.getID();
-		this.cotaImpressao = aluno.cotaImpressao;
-		this.valorMulta = aluno.valorMulta;
-	}
+	}	
 
 	public double getValorMulta() {
 		return valorMulta;
@@ -42,7 +36,7 @@ public class Aluno extends Pessoa {
 			// exception de ser de consulta
 		} else {
 			if (livro.getDisponiveis() > 0) {
-				Emprestimo e = new Emprestimo(this, livro, null);
+				Emprestimo e = new Emprestimo(this, livro);
 				arrayEmprestimos.inserir(e);
 				livro.setDisponiveis(livro.getDisponiveis() - 1);
 			} else {
@@ -61,7 +55,7 @@ public class Aluno extends Pessoa {
 			// expception
 		} else {
 			if (livro.getDisponiveis() > 0) {
-				Emprestimo e = new Emprestimo(this, livro, null);
+				Emprestimo e = new Emprestimo(this, livro);
 				listaEmprestimos.inserir(e);
 				livro.setDisponiveis(livro.getDisponiveis() - 1);
 			} else {
@@ -79,7 +73,7 @@ public class Aluno extends Pessoa {
 		if (espaco.getAluno() == null) {
 			espaco.setAluno(this);
 		} else {
-			// exception de espaço lotado
+			// exception de espaÃ§o lotado
 		}
 	}
 
