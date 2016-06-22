@@ -28,7 +28,7 @@ public class RepositorioPessoasLista implements RepositorioPessoa {
 	@Override
 	public Pessoa procurar(Pessoa pessoa) {
 		for (Node node = first; node != null; node = node.getProximo()){
-			if (node.getPessoa() == pessoa){
+			if (node.getPessoa().getID() == pessoa.getID()){
 				return pessoa;
 			}
 		}
@@ -40,7 +40,7 @@ public class RepositorioPessoasLista implements RepositorioPessoa {
 		Node prev = null;
 		Node prim = first;
 		
-		while (prim != null && prim.getPessoa() != pessoa){
+		while (prim != null && prim.getPessoa().getID() != pessoa.getID()){
 			prev = prim;
 			prim = prim.getProximo();
 		}
@@ -55,8 +55,12 @@ public class RepositorioPessoasLista implements RepositorioPessoa {
 	}
 
 	@Override
-	public void atualizar(Pessoa pessoa) {
-		
+	public Pessoa atualizar(Pessoa pessoa) {
+		Pessoa p = procurar(pessoa);
+		if (p != null){
+			p = pessoa;
+		}
+		return p;		
 
 	}
 
