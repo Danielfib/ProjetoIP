@@ -1,5 +1,6 @@
 package br.com.biblioteca.basic;
 
+import br.com.biblioteca.exceptions.EspacoEstudoException;
 import br.com.biblioteca.exceptions.LivroException;
 import br.com.biblioteca.repositorios.RepositorioEmprestimosArray;
 import br.com.biblioteca.repositorios.RepositorioEmprestimosLista;
@@ -69,11 +70,11 @@ public class Aluno extends Pessoa {
 		livro.setDisponiveis(livro.getDisponiveis() - 1);
 	}
 
-	public void reservarEspaco(EspacoEstudo espaco) {
+	public void reservarEspaco(EspacoEstudo espaco) throws EspacoEstudoException {
 		if (espaco.getAluno() == null) {
 			espaco.setAluno(this);
 		} else {
-			throw new 
+			throw new EspacoEstudoException ("O espaço já se encontra reservado!");
 		}
 	}
 
