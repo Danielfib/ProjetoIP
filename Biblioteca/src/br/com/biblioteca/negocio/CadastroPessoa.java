@@ -7,51 +7,47 @@ import br.com.biblioteca.interfaces.RepositorioPessoa;
 
 public class CadastroPessoa {
 	private RepositorioPessoa pessoas;
-	
-	public CadastroPessoa (RepositorioPessoa pessoa){
+
+	public CadastroPessoa(RepositorioPessoa pessoa) {
 		this.pessoas = pessoa;
 	}
-	
-	public void cadastrar(Pessoa pessoa) throws PessoaException{
-		if (pessoas.procurar(pessoa) == null){
+
+	public void cadastrar(Pessoa pessoa) throws PessoaException {
+		if (pessoas.procurar(pessoa) == null) {
 			pessoas.inserir(pessoa);
 		} else {
-			if(pessoa instanceof Aluno) {
-				throw new PessoaException("Aluno j· existente!");			
+			if (pessoa instanceof Aluno) {
+				throw new PessoaException("Aluno j√° existente!");
 			} else {
-				throw new PessoaException("Funcion·rio j· existente!");
+				throw new PessoaException("Funcion√°rio j√° existente!");
 			}
 		}
 	}
-	
-	public void remover(Pessoa pessoa) throws PessoaException{
-		if (pessoas.procurar(pessoa) != null){
+
+	public void remover(Pessoa pessoa) throws PessoaException {
+		if (pessoas.procurar(pessoa) != null) {
 			pessoas.remover(pessoa);
 		} else {
-			if(pessoa instanceof Aluno){
-				throw new PessoaException("Aluno inexistente!");			
+			if (pessoa instanceof Aluno) {
+				throw new PessoaException("Aluno inexistente!");
 			} else {
-				throw new PessoaException("Funcion·rio inexistente!");
+				throw new PessoaException("Funcion√°rio inexistente!");
 			}
 		}
 	}
-	
-	public void atualizar(Pessoa pessoa) throws PessoaException{
-		if (pessoas.atualizar(pessoa) == null){
-			if(pessoa instanceof Aluno){
-				throw new PessoaException("Aluno inexistente!");			
+
+	public void atualizar(Pessoa pessoa) throws PessoaException {
+		if (pessoas.atualizar(pessoa) == null) {
+			if (pessoa instanceof Aluno) {
+				throw new PessoaException("Aluno inexistente!");
 			} else {
-				throw new PessoaException("Funcion·rio inexistente!");
+				throw new PessoaException("Funcion√°rio inexistente!");
 			}
 		}
 	}
-	
-	public Pessoa procurar(Pessoa pessoa){
+
+	public Pessoa procurar(Pessoa pessoa) {
 		return pessoas.procurar(pessoa);
 	}
-	
-	
-	
-	
 
 }

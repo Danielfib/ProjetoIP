@@ -5,5 +5,5 @@ public class EmprestimoException extends Exception {
 	public EmprestimoException(String s) {
 		super(s);
 	}
-	
+
 }

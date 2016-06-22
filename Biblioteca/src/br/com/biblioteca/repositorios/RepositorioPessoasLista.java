@@ -15,40 +15,40 @@ public class RepositorioPessoasLista implements RepositorioPessoa {
 	@Override
 	public void inserir(Pessoa pessoa) {
 		Node primeiro = first;
-		if (first == null){
+		if (first == null) {
 			first = new Node(pessoa);
 		} else {
-			while (primeiro.getProximo() != null){
-				primeiro = primeiro.getProximo(); //vai ate o ultimo da lista
-			}			
+			while (primeiro.getProximo() != null) {
+				primeiro = primeiro.getProximo(); // vai ate o ultimo da lista
+			}
 			primeiro.setProximo(new Node(pessoa));
 		}
 	}
 
 	@Override
 	public Pessoa procurar(Pessoa pessoa) {
-		for (Node node = first; node != null; node = node.getProximo()){
-			if (node.getPessoa().getID() == pessoa.getID()){
+		for (Node node = first; node != null; node = node.getProximo()) {
+			if (node.getPessoa().getID() == pessoa.getID()) {
 				return pessoa;
 			}
 		}
-		return null;		
+		return null;
 	}
 
 	@Override
 	public void remover(Pessoa pessoa) {
 		Node prev = null;
 		Node prim = first;
-		
-		while (prim != null && prim.getPessoa().getID() != pessoa.getID()){
+
+		while (prim != null && prim.getPessoa().getID() != pessoa.getID()) {
 			prev = prim;
 			prim = prim.getProximo();
 		}
-		if (prim==null){
+		if (prim == null) {
 			return;
 		}
-		if (prev == null){
-			first = prim.getProximo(); 
+		if (prev == null) {
+			first = prim.getProximo();
 		} else {
 			prev.setProximo(prim.getProximo());
 		}
@@ -57,10 +57,10 @@ public class RepositorioPessoasLista implements RepositorioPessoa {
 	@Override
 	public Pessoa atualizar(Pessoa pessoa) {
 		Pessoa p = procurar(pessoa);
-		if (p != null){
+		if (p != null) {
 			p = pessoa;
 		}
-		return p;		
+		return p;
 
 	}
 

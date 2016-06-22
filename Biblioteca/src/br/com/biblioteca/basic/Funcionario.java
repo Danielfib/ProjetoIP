@@ -1,4 +1,4 @@
-package br.com.biblioteca.basic;
+/*package br.com.biblioteca.basic;
 
 import br.com.biblioteca.repositorios.RepositorioFornecedorArray;
 import br.com.biblioteca.repositorios.RepositorioFornecedorLista;
@@ -61,4 +61,4 @@ public class Funcionario extends Pessoa {
 		a.setValorMulta(0);
 	}
 
-}
+}*/

@@ -55,12 +55,12 @@ public class RepositorioEspacosEstudoLista implements RepositorioEspacoEstudo {
 			if (teste.getProx() != null) {
 				if (teste.getEspaco() == espaco) {
 					lista.setPrimeiro(lista.getPrimeiro().getProx());
-					lista.setQtd(lista.getQtd()-1);
+					lista.setQtd(lista.getQtd() - 1);
 					// Remove o primeiro valor da lista e substitui pelo
 					// próximo
 				} else if (teste.getProx().getEspaco() == espaco) {
 					teste.setProx(teste.getProx().getProx());
-					lista.setQtd(lista.getQtd()-1);
+					lista.setQtd(lista.getQtd() - 1);
 				} else {
 					teste = teste.getProx();
 				}
@@ -72,11 +72,11 @@ public class RepositorioEspacosEstudoLista implements RepositorioEspacoEstudo {
 	@Override
 	public EspacoEstudo atualizar(EspacoEstudo espaco) {
 		EspacoEstudo auxiliar = procurar(espaco.getIdentificador());
-		if (auxiliar != null){
+		if (auxiliar != null) {
 			auxiliar = espaco;
 		}
 		return auxiliar;
-		
+
 	}
 
 }

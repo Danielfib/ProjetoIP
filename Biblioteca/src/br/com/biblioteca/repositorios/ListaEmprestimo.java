@@ -6,9 +6,10 @@ public class ListaEmprestimo {
 
 	private Emprestimo emprestimo;
 	private ListaEmprestimo next;
-	
-	public ListaEmprestimo() {}
-	
+
+	public ListaEmprestimo() {
+	}
+
 	public ListaEmprestimo(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
 	}
@@ -28,5 +29,5 @@ public class ListaEmprestimo {
 	public void setNext(ListaEmprestimo next) {
 		this.next = next;
 	}
-	
+
 }

@@ -5,10 +5,12 @@ import br.com.biblioteca.basic.Quadrado;
 
 public interface RepositorioLivro {
 
-	 void inserir(Livro livro);
-	 Livro procurar(String titulo);
-	 void remover(Livro livro);
-	 Livro atualizar(Livro livro);
+	public void inserir(Livro livro);
 
+	public Livro procurar(String titulo);
+
+	public void remover(Livro livro);
+
+	public Livro atualizar(Livro livro);
 
 }

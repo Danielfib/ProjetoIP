@@ -7,13 +7,13 @@ import br.com.biblioteca.repositorios.RepositorioEmprestimosLista;
 
 public class Aluno extends Pessoa {
 	private double valorMulta;
-	private int cotaImpressao;	
+	private int cotaImpressao;
 
 	public Aluno(String Nome, int ID, double valorMulta, int cotaImpressao) {
 		super(Nome, ID);
 		this.valorMulta = valorMulta;
 		this.cotaImpressao = cotaImpressao;
-	}	
+	}
 
 	public double getValorMulta() {
 		return valorMulta;
@@ -29,13 +29,15 @@ public class Aluno extends Pessoa {
 
 	public void setCotaImpressao(int cotaImpressao) {
 		this.cotaImpressao = cotaImpressao;
-	}	
+	}
 
-	public void reservarEspaco(EspacoEstudo espaco) throws EspacoEstudoException {
+	public void reservarEspaco(EspacoEstudo espaco)
+			throws EspacoEstudoException {
 		if (espaco.getAluno() == null) {
 			espaco.setAluno(this);
 		} else {
-			throw new EspacoEstudoException ("O espaço já se encontra reservado!");
+			throw new EspacoEstudoException(
+					"O espaço já se encontra reservado!");
 		}
 	}
 

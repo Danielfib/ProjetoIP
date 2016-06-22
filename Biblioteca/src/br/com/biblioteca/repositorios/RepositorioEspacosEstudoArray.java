@@ -37,10 +37,10 @@ public class RepositorioEspacosEstudoArray implements RepositorioEspacoEstudo {
 
 	@Override
 	public EspacoEstudo procurar(int identificador) {
-		for(int i = 0; i < base; i++) {
-			if(espacos[i].getIdentificador() == identificador) {
+		for (int i = 0; i < base; i++) {
+			if (espacos[i].getIdentificador() == identificador) {
 				return espacos[i];
-			} else{
+			} else {
 				return null;
 			}
 		}
@@ -50,7 +50,7 @@ public class RepositorioEspacosEstudoArray implements RepositorioEspacoEstudo {
 	@Override
 	public EspacoEstudo atualizar(EspacoEstudo espaco) {
 		EspacoEstudo auxiliar = procurar(espaco.getIdentificador());
-		if(auxiliar != null){
+		if (auxiliar != null) {
 			auxiliar = espaco;
 		}
 		return auxiliar;
@@ -58,8 +58,8 @@ public class RepositorioEspacosEstudoArray implements RepositorioEspacoEstudo {
 
 	@Override
 	public void remover(EspacoEstudo espaco) {
-		espaco = espacos[base-1];
-		espacos[base-1] = null;
+		espaco = espacos[base - 1];
+		espacos[base - 1] = null;
 		base--;
 	}
 

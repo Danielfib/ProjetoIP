@@ -6,7 +6,7 @@ import br.com.biblioteca.interfaces.RepositorioFornecedor;
 
 import br.com.biblioteca.basic.Quadrado1;
 
-public class RepositorioFornecedorLista implements RepositorioFornecedor{
+public class RepositorioFornecedorLista implements RepositorioFornecedor {
 
 	public Quadrado1 primeiro;
 
@@ -14,14 +14,13 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 		primeiro = null;
 	}
 
-	//	public void inserirInverso(Fornecedor) {
-	//		Quadrado1 frist = new Quadrado1(i);
-	//		frist.setNumero(i);
-	//		frist.setProx(primeiro);
-	//		primeiro = frist;
-	//	}
+	// public void inserirInverso(Fornecedor) {
+	// Quadrado1 frist = new Quadrado1(i);
+	// frist.setNumero(i);
+	// frist.setProx(primeiro);
+	// primeiro = frist;
+	// }
 	@Override
-
 	public void inserir(Fornecedor fornecedor) {
 		Quadrado1 frist = primeiro;
 		if (primeiro == null) {
@@ -35,18 +34,17 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 	}
 
 	@Override
-
-	public Fornecedor procurar(int cnpj){
-		for ( Quadrado1 n = primeiro; n !=null ; n = n.getProx()){
-			if(n.getFornecedor().getCNPJ() == cnpj ){
-				return n.getFornecedor() ;
+	public Fornecedor procurar(int cnpj) {
+		for (Quadrado1 n = primeiro; n != null; n = n.getProx()) {
+			if (n.getFornecedor().getCNPJ() == cnpj) {
+				return n.getFornecedor();
 			}
 		}
 		return null;
-		//retorna exception NEException (Não Encontrado);
+		// retorna exception NEException (Não Encontrado);
 	}
-	@Override
 
+	@Override
 	public void remover(Fornecedor fornecedor) {
 		Quadrado1 anterior = null;
 		Quadrado1 p = primeiro;
@@ -65,13 +63,12 @@ public class RepositorioFornecedorLista implements RepositorioFornecedor{
 		}
 	}
 
-	public Fornecedor atualizar(Fornecedor novoFornecedor){
+	public Fornecedor atualizar(Fornecedor novoFornecedor) {
 		Fornecedor novo = procurar(novoFornecedor.getCNPJ());
-		if(novo != null) {
+		if (novo != null) {
 			novo = novoFornecedor;
 		}
 		return novo;
 	}
 
 }
-
