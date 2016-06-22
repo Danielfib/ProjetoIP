@@ -4,12 +4,12 @@ import br.com.biblioteca.basic.EspacoEstudo;
 
 public interface RepositorioEspacoEstudo {
 	
-	void inserir(EspacoEstudo espaco);
+	public void inserir(EspacoEstudo espaco);
 
-	EspacoEstudo procurar(int identificador);
+	public EspacoEstudo procurar(int identificador);
 
-	void remover(int identificador);
+	public void remover(EspacoEstudo espaco);
 
-	void atualizar(EspacoEstudo espaco);
+	public EspacoEstudo atualizar(EspacoEstudo espaco);
 
 }
