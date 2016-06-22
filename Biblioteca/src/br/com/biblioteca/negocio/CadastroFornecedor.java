@@ -1,41 +1,49 @@
 package br.com.biblioteca.negocio;
 
 import br.com.biblioteca.basic.Fornecedor;
-import br.com.biblioteca.basic.Livro;
+import br.com.biblioteca.exceptions.FornecedorException;
+import br.com.biblioteca.exceptions.LivroException;
 import br.com.biblioteca.interfaces.RepositorioFornecedor;
 
 public class CadastroFornecedor {
 
-	private RepositorioFornecedor novoFornecedor;
-	
+	private RepositorioFornecedor repositorioFornecedor;
+
 	public CadastroFornecedor(RepositorioFornecedor fornecedor){
-		this.novoFornecedor = fornecedor;
-		
+		this.repositorioFornecedor = fornecedor;
+
 	}
-	
-	public void cadastrar(Fornecedor fornecedor){
-		if (this.novoFornecedor.procurar(fornecedor.getCNPJ()) == null){
-			this.novoFornecedor.inserir(fornecedor);
+
+	public void cadastrar(Fornecedor fornecedor) throws FornecedorException {
+		if (this.repositorioFornecedor.procurar(fornecedor.getCNPJ()) == null){
+			this.repositorioFornecedor.inserir(fornecedor);
 		}else{
-			//exception
+			throw new FornecedorException("Fornecedor com esse CNPJ já existe!");
 		}
 	}
-	public void remover(Fornecedor fornecedor){
-		if (this.novoFornecedor.procurar(fornecedor.getCNPJ()) != null){
-			this.novoFornecedor.remover(fornecedor);
+	public void remover(Fornecedor fornecedor) throws FornecedorException  { 
+		if (this.repositorioFornecedor.procurar(fornecedor.getCNPJ()) != null){
+			this.repositorioFornecedor.remover(fornecedor);
 		}else{
-			//exception
+			throw new FornecedorException("Não existe fornecedor com esse CNPJ!");
+
 		}
 	}
-	public void atualizar(Fornecedor fornecedor){
-		if(novoFornecedor.atualizar(fornecedor)==null){
-			//execpiton
+	public void atualizar(Fornecedor fornecedor) throws FornecedorException  {
+		if(repositorioFornecedor.atualizar(fornecedor)==null){
+			throw new FornecedorException("Não existe esse fornecedor!");
+
 		}
 	}
-	
-	public Fornecedor procurar(int cnpj){
-		return novoFornecedor.procurar(cnpj);
-		
+
+	public Fornecedor procurar(int cnpj) throws FornecedorException  {
+		Fornecedor fornecedor = repositorioFornecedor.procurar(cnpj);
+		if( fornecedor == null ){
+			throw new FornecedorException("Não existe fornecedor com esse CNPJ!");
+		}else{
+			return fornecedor;
+		}
+
 	}
-	
+
 }
