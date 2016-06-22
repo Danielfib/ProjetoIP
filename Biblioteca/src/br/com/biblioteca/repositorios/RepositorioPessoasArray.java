@@ -1,3 +1,8 @@
+package br.com.biblioteca.repositorios;
+
+import br.com.biblioteca.basic.Pessoa;
+import br.com.biblioteca.interfaces.RepositorioPessoa;
+
 public class RepositorioPessoasArray implements RepositorioPessoa {
 
 	private Pessoa[] pessoas;
@@ -34,10 +39,12 @@ public class RepositorioPessoasArray implements RepositorioPessoa {
 	}
 
 	@Override
-	public void atualizar(Pessoa pessoa) {
+	public Pessoa atualizar(Pessoa pessoa) {
 		Pessoa p = procurar(pessoa);
 		if (p != null) {
 			p = pessoa;
 		}
-	}
+		return p;
+	}	
+	
 }
