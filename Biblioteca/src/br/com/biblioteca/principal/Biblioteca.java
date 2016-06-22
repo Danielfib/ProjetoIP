@@ -172,6 +172,10 @@ public class Biblioteca {
 	}
 
 	// Fornecedor - NUNES
+	
+	public void cadastrarFornecedor(Fornecedor fornecedor) throws FornecedorException {
+		cadastroFornecedor.cadastrar(new Fornecedor(fornecedor));
+	}
 
 	public void removerFornecedor(Fornecedor fornecedor)
 			throws FornecedorException {
