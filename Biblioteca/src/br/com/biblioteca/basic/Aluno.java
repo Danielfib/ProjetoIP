@@ -1,5 +1,6 @@
 package br.com.biblioteca.basic;
 
+import br.com.biblioteca.exceptions.LivroException;
 import br.com.biblioteca.repositorios.RepositorioEmprestimosArray;
 import br.com.biblioteca.repositorios.RepositorioEmprestimosLista;
 
@@ -31,35 +32,34 @@ public class Aluno extends Pessoa {
 		this.cotaImpressao = cotaImpressao;
 	}
 
-	public void pegarLivroArray(Livro livro) {
+	public void pegarLivroArray(Livro livro) throws LivroException {
 		if (livro.isConsulta() == true) {
-			// exception de ser de consulta
+			throw new LivroException("Este livro não pode sair da biblioteca!");
 		} else {
 			if (livro.getDisponiveis() > 0) {
 				Emprestimo e = new Emprestimo(this, livro);
 				arrayEmprestimos.inserir(e);
 				livro.setDisponiveis(livro.getDisponiveis() - 1);
 			} else {
-				// Exception de nao ter livro
+				throw new LivroException("Não existem exemplares deste livro disponíveis para empréstimo.");
 			}
 		}
 	} // para arrays
-
 	public void devolverLivroArray(Livro livro) {
 		arrayEmprestimos.remover(arrayEmprestimos.procurar(livro, this));
 		livro.setDisponiveis(livro.getDisponiveis() + 1);
 	}
 
-	public void pegarLivroLista(Livro livro) {
+	public void pegarLivroLista(Livro livro) throws LivroException {
 		if (livro.isConsulta() == true) {
-			// expception
+			throw new LivroException("Este livro não pode sair da biblioteca!");
 		} else {
 			if (livro.getDisponiveis() > 0) {
 				Emprestimo e = new Emprestimo(this, livro);
 				listaEmprestimos.inserir(e);
 				livro.setDisponiveis(livro.getDisponiveis() - 1);
 			} else {
-				//exception de n ter livro
+				throw new LivroException("Não existem exemplares deste livro disponíveis para empréstimo.");
 			}
 		}
 	} // para lista
@@ -73,7 +73,7 @@ public class Aluno extends Pessoa {
 		if (espaco.getAluno() == null) {
 			espaco.setAluno(this);
 		} else {
-			// exception de espaÃ§o lotado
+			throw new 
 		}
 	}
 
