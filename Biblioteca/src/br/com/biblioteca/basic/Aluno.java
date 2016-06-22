@@ -7,9 +7,7 @@ import br.com.biblioteca.repositorios.RepositorioEmprestimosLista;
 
 public class Aluno extends Pessoa {
 	private double valorMulta;
-	private int cotaImpressao;
-	RepositorioEmprestimosArray arrayEmprestimos = new RepositorioEmprestimosArray(100);
-	RepositorioEmprestimosLista listaEmprestimos = new RepositorioEmprestimosLista();
+	private int cotaImpressao;	
 
 	public Aluno(String Nome, int ID, double valorMulta, int cotaImpressao) {
 		super(Nome, ID);
@@ -31,44 +29,7 @@ public class Aluno extends Pessoa {
 
 	public void setCotaImpressao(int cotaImpressao) {
 		this.cotaImpressao = cotaImpressao;
-	}
-
-	public void pegarLivroArray(Livro livro) throws LivroException {
-		if (livro.isConsulta() == true) {
-			throw new LivroException("Este livro não pode sair da biblioteca!");
-		} else {
-			if (livro.getDisponiveis() > 0) {
-				Emprestimo e = new Emprestimo(this, livro);
-				arrayEmprestimos.inserir(e);
-				livro.setDisponiveis(livro.getDisponiveis() - 1);
-			} else {
-				throw new LivroException("Não existem exemplares deste livro disponíveis para empréstimo.");
-			}
-		}
-	} // para arrays
-	public void devolverLivroArray(Livro livro) {
-		arrayEmprestimos.remover(arrayEmprestimos.procurar(livro, this));
-		livro.setDisponiveis(livro.getDisponiveis() + 1);
-	}
-
-	public void pegarLivroLista(Livro livro) throws LivroException {
-		if (livro.isConsulta() == true) {
-			throw new LivroException("Este livro não pode sair da biblioteca!");
-		} else {
-			if (livro.getDisponiveis() > 0) {
-				Emprestimo e = new Emprestimo(this, livro);
-				listaEmprestimos.inserir(e);
-				livro.setDisponiveis(livro.getDisponiveis() - 1);
-			} else {
-				throw new LivroException("Não existem exemplares deste livro disponíveis para empréstimo.");
-			}
-		}
-	} // para lista
-
-	public void devolverLivroLista(Livro livro) {
-		listaEmprestimos.remover(listaEmprestimos.procurar(livro, this));
-		livro.setDisponiveis(livro.getDisponiveis() - 1);
-	}
+	}	
 
 	public void reservarEspaco(EspacoEstudo espaco) throws EspacoEstudoException {
 		if (espaco.getAluno() == null) {
