@@ -33,7 +33,11 @@ public class CadastroEspacoEstudo {
 			throw new EspacoEstudoException("Espaco inexistente");
 		}
 	}
-	public EspacoEstudo procurar(int identificador){
-		return espacosEstudo.procurar(identificador);
+	public EspacoEstudo procurar(int identificador) throws EspacoEstudoException{
+		if (espacosEstudo.procurar(identificador) == null){
+			throw new EspacoEstudoException("Espaco inexistente");
+		} else{
+			return espacosEstudo.procurar(identificador);
+		}
 	}
 }
